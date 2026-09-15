@@ -27,6 +27,10 @@ body {
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+/* ---------- UTILITIES ---------- */
+.mt-8 { margin-top: 8px; }
+.nowrap { white-space: nowrap; }
+
 /* ---------- NAV ---------- */
 nav {
   position: sticky; top: 0; z-index: 100;
@@ -195,6 +199,15 @@ section { padding: 72px 0; }
 }
 .safety-rules li::before { content: '✓'; color: var(--accent); font-weight: 700; }
 
+/* ---------- WATCHLIST EXAMPLE BANNER ---------- */
+.example-banner {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: rgba(245, 166, 35, 0.08); border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: var(--radius); padding: 14px 18px;
+  font-size: 0.85rem; color: var(--text); margin-bottom: 20px; line-height: 1.5;
+}
+.example-banner strong { color: var(--warn); }
+
 /* ---------- DROPS LIST ---------- */
 .drops-list { display: flex; flex-direction: column; gap: 12px; }
 .drop-item {
@@ -354,6 +367,19 @@ section { padding: 72px 0; }
 }
 .cta-form input:focus { border-color: var(--accent); }
 .cta-form input::placeholder { color: var(--text-muted); }
+.cta-form input:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+.coming-soon-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(245, 166, 35, 0.12); color: var(--warn);
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.6px; padding: 5px 14px; border-radius: 100px;
+  margin-bottom: 16px; position: relative;
+}
+.coming-soon-note {
+  font-size: 0.78rem; color: var(--text-muted);
+  margin-top: 14px; position: relative;
+}
 
 /* ---------- FOOTER ---------- */
 footer {
@@ -366,6 +392,55 @@ footer a:hover { color: var(--accent); }
 .disclaimer {
   max-width: 640px; margin: 20px auto 0;
   font-size: 0.75rem; line-height: 1.6; opacity: 0.7;
+}
+
+/* ---------- 404 PAGE ---------- */
+.error-wrap {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.error-wrap::before {
+  content: '';
+  position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+  opacity: 0.3; pointer-events: none;
+}
+.error-inner { position: relative; max-width: 520px; }
+.error-code {
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -4px;
+  background: linear-gradient(135deg, var(--accent), #00c9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+.error-inner h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+.error-inner p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+.error-cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* ---------- RESPONSIVE ---------- */
