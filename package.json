@@ -1,0 +1,11 @@
+{
+  "name": "airdrop-hub",
+  "private": true,
+  "scripts": {
+    "build": "node generate-sitemap.js",
+    "deploy": "npm run build && npx wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.131.2"
+  }
+}
