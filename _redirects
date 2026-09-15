@@ -1,0 +1,28 @@
+# ============================================================
+# Cloudflare Pages _redirects
+# ============================================================
+# Format:  <source>  <destination>  <code>
+# 301 = permanent redirect (SEO-friendly)
+# ============================================================
+# CATATAN: Cloudflare Pages SUDAH OTOMATIS redirect .html → clean URL.
+# File ini hanya untuk redirect tambahan / custom.
+# ============================================================
+
+# Redirect index.html ke root
+/index.html    /    301
+
+# Redirect trailing slash ke non-trailing (opsional, konsisten)
+/guide-claim/     /guide-claim    301
+/guide-scam/      /guide-scam     301
+/guide-testnet/   /guide-testnet  301
+/guide-faucets/   /guide-faucets  301
+/guide-daily/     /guide-daily    301
+/guide-tap/       /guide-tap      301
+
+# Redirect .html ke clean URL (eksplisit, meski Cloudflare sudah otomatis)
+/guide-claim.html     /guide-claim     301
+/guide-scam.html      /guide-scam      301
+/guide-testnet.html   /guide-testnet   301
+/guide-faucets.html   /guide-faucets   301
+/guide-daily.html     /guide-daily     301
+/guide-tap.html       /guide-tap       301

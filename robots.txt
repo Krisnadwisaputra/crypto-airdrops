@@ -1,0 +1,11 @@
+# ============================================================
+# robots.txt — Crypto Airdrops (Cloudflare)
+# ============================================================
+
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Crawl-delay: 1
+
+Sitemap: https://crypto-airdrops.example.com/sitemap.xml

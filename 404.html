@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .error-wrap {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .error-wrap::before {
+      content: '';
+      position: absolute; top: -150px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, var(--accent-glow), transparent 70%);
+      opacity: 0.3; pointer-events: none;
+    }
+    .error-inner { position: relative; max-width: 520px; }
+    .error-code {
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, var(--accent), #00c9ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .error-inner h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .error-inner p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .error-cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="/" class="logo">fool<span>xt</span></a>
+      <ul class="nav-links">
+        <li><a href="/#featured">Guides</a></li>
+        <li><a href="/#safety">Safety</a></li>
+        <li><a href="/#drops">Watchlist</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="error-wrap">
+    <div class="error-inner">
+      <div class="error-code">404</div>
+      <h1>This page doesn't exist</h1>
+      <p>The link you followed may be broken, or the page may have been moved. Let's get you back to the guides.</p>
+      <div class="error-cta">
+        <a href="/" class="btn btn-primary">← Back to Home</a>
+        <a href="/#featured" class="btn btn-ghost">Browse Guides</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Foolxt — Crypto Airdrops, Guides &amp; Web3 Security.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
