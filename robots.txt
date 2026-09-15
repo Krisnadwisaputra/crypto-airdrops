@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crypto-airdrops.putrakrisna987.workers.dev/sitemap.xml
+Sitemap: https://airdrop-hub.cryptoatlas.workers.dev/sitemap.xml
