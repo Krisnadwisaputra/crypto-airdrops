@@ -26,3 +26,8 @@
 /guide-faucets.html   /guide-faucets   301
 /guide-daily.html     /guide-daily     301
 /guide-tap.html       /guide-tap       301
+# Trust pages: .html → clean URL
+/about.html       /about       301
+/contact.html     /contact     301
+/privacy.html     /privacy     301
+/disclaimer.html  /disclaimer  301

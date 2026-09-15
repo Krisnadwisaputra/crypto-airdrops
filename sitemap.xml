@@ -29,4 +29,16 @@
     <loc>https://airdrop-hub.cryptoatlas.workers.dev/guide-testnet</loc>
   </url>
 
+  <url>
+    <loc>https://airdrop-hub.cryptoatlas.workers.dev/about</loc>
+  </url>
+  <url>
+    <loc>https://airdrop-hub.cryptoatlas.workers.dev/contact</loc>
+  </url>
+  <url>
+    <loc>https://airdrop-hub.cryptoatlas.workers.dev/privacy</loc>
+  </url>
+  <url>
+    <loc>https://airdrop-hub.cryptoatlas.workers.dev/disclaimer</loc>
+  </url>
 </urlset>
