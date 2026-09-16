@@ -13,6 +13,7 @@ const PAGES = [
   { file: "guide-scam.html",    path: "/guide-scam",    changefreq: "weekly",  priority: "0.8" },
   { file: "guide-tap.html",     path: "/guide-tap",     changefreq: "weekly",  priority: "0.8" },
   { file: "guide-testnet.html", path: "/guide-testnet", changefreq: "weekly",  priority: "0.8" },
+  { file: "bitcoin-faucets-2026.html", path: "/bitcoin-faucets-2026", changefreq: "monthly", priority: "0.7" },
   { file: "about.html",      path: "/about",         changefreq: "monthly", priority: "0.5" },
   { file: "contact.html",    path: "/contact",       changefreq: "monthly", priority: "0.4" },
   { file: "privacy.html",    path: "/privacy",       changefreq: "yearly",  priority: "0.3" },

@@ -18,6 +18,7 @@
 /guide-faucets/   /guide-faucets  301
 /guide-daily/     /guide-daily    301
 /guide-tap/       /guide-tap      301
+/bitcoin-faucets-2026/    /bitcoin-faucets-2026    301
 
 # Redirect .html ke clean URL (eksplisit, meski Cloudflare sudah otomatis)
 /guide-claim.html     /guide-claim     301
@@ -26,6 +27,7 @@
 /guide-faucets.html   /guide-faucets   301
 /guide-daily.html     /guide-daily     301
 /guide-tap.html       /guide-tap       301
+/bitcoin-faucets-2026.html    /bitcoin-faucets-2026    301
 # Trust pages: .html → clean URL
 /about.html       /about       301
 /contact.html     /contact     301
