@@ -52,7 +52,6 @@
     }
 
     writeStoredLanguage(lang);
-
     document.documentElement.lang = lang === "id" ? "id" : "en";
 
     applyTranslations(lang);
@@ -63,41 +62,39 @@
   function translate(key, lang) {
     const dictionary = window.KDS_TRANSLATIONS || {};
     return dictionary[lang]?.[key] ||
-           dictionary[DEFAULT_LANGUAGE]?.[key] ||
-           key;
+      dictionary[DEFAULT_LANGUAGE]?.[key] ||
+      key;
   }
 
   function applyTranslations(lang) {
     document.querySelectorAll("[data-i18n]").forEach(function (element) {
       const key = element.getAttribute("data-i18n");
-
       if (!key) return;
-
       element.textContent = translate(key, lang);
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function (element) {
       const key = element.getAttribute("data-i18n-placeholder");
-
       if (!key) return;
-
       element.setAttribute("placeholder", translate(key, lang));
     });
 
     document.querySelectorAll("[data-i18n-aria-label]").forEach(function (element) {
       const key = element.getAttribute("data-i18n-aria-label");
-
       if (!key) return;
-
       element.setAttribute("aria-label", translate(key, lang));
     });
 
     document.querySelectorAll("[data-i18n-title]").forEach(function (element) {
       const key = element.getAttribute("data-i18n-title");
-
       if (!key) return;
-
       element.setAttribute("title", translate(key, lang));
+    });
+
+    document.querySelectorAll("[data-i18n-current]").forEach(function (element) {
+      const key = element.getAttribute("data-i18n-current");
+      if (!key) return;
+      element.setAttribute("aria-current", translate(key, lang));
     });
   }
 
@@ -106,11 +103,9 @@
 
     document.querySelectorAll("[data-date]").forEach(function (element) {
       const value = element.getAttribute("data-date");
-
       if (!value) return;
 
       const date = new Date(value);
-
       if (Number.isNaN(date.getTime())) return;
 
       const formatted = new Intl.DateTimeFormat(locale, {
@@ -126,19 +121,13 @@
   function updateLanguageUI(lang) {
     document.querySelectorAll("[data-lang-option]").forEach(function (button) {
       const buttonLang = button.getAttribute("data-lang-option");
-
       button.classList.toggle("active", buttonLang === lang);
-
-      button.setAttribute(
-        "aria-pressed",
-        buttonLang === lang ? "true" : "false"
-      );
+      button.setAttribute("aria-pressed", buttonLang === lang ? "true" : "false");
     });
   }
 
   function createLanguageSwitcher() {
     const navInner = document.querySelector(".nav-inner");
-
     if (!navInner || document.querySelector(".language-switcher")) {
       return;
     }
@@ -151,6 +140,7 @@
     buttonEN.type = "button";
     buttonEN.className = "language-option";
     buttonEN.setAttribute("data-lang-option", "en");
+    buttonEN.setAttribute("aria-label", "Switch language to English");
     buttonEN.textContent = "EN";
 
     const divider = document.createElement("span");
@@ -161,6 +151,7 @@
     buttonID.type = "button";
     buttonID.className = "language-option";
     buttonID.setAttribute("data-lang-option", "id");
+    buttonID.setAttribute("aria-label", "Switch language to Indonesian");
     buttonID.textContent = "ID";
 
     buttonEN.addEventListener("click", function () {
@@ -174,30 +165,29 @@
     wrapper.appendChild(buttonEN);
     wrapper.appendChild(divider);
     wrapper.appendChild(buttonID);
-
     navInner.appendChild(wrapper);
   }
 
   function addAutomaticNavigationTranslations() {
     const links = document.querySelectorAll(".nav-links a");
-
     links.forEach(function (link) {
       const href = link.getAttribute("href") || "";
 
       if (href.includes("#featured")) {
         link.setAttribute("data-i18n", "nav_guides");
       }
-
       if (href.includes("#safety")) {
         link.setAttribute("data-i18n", "nav_safety");
       }
-
       if (href.includes("#drops")) {
         link.setAttribute("data-i18n", "nav_watchlist");
       }
-
       if (href.includes("#newsletter")) {
         link.setAttribute("data-i18n", "nav_newsletter");
+      }
+
+      if (link.getAttribute("href") === "/" || link.getAttribute("href") === "#top") {
+        link.setAttribute("aria-label", link.textContent.trim());
       }
     });
   }
@@ -207,7 +197,6 @@
     addAutomaticNavigationTranslations();
 
     const lang = getLanguage();
-
     setLanguage(lang);
   }
 
