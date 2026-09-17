@@ -5,6 +5,24 @@
   const DEFAULT_LANGUAGE = "en";
   const SUPPORTED = ["en", "id"];
 
+  function readStoredLanguage() {
+    try {
+      if (!window.localStorage) return null;
+      return window.localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function writeStoredLanguage(lang) {
+    try {
+      if (!window.localStorage) return;
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    } catch (error) {
+      // Ignore storage restrictions in private browsing or locked-down browsers.
+    }
+  }
+
   function getLanguage() {
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get("lang");
@@ -13,7 +31,7 @@
       return urlLang;
     }
 
-    const saved = localStorage.getItem(STORAGE_KEY);
+    const saved = readStoredLanguage();
 
     if (SUPPORTED.includes(saved)) {
       return saved;
@@ -33,7 +51,7 @@
       lang = DEFAULT_LANGUAGE;
     }
 
-    localStorage.setItem(STORAGE_KEY, lang);
+    writeStoredLanguage(lang);
 
     document.documentElement.lang = lang === "id" ? "id" : "en";
 
@@ -63,10 +81,23 @@
 
       if (!key) return;
 
-      element.setAttribute(
-        "placeholder",
-        translate(key, lang)
-      );
+      element.setAttribute("placeholder", translate(key, lang));
+    });
+
+    document.querySelectorAll("[data-i18n-aria-label]").forEach(function (element) {
+      const key = element.getAttribute("data-i18n-aria-label");
+
+      if (!key) return;
+
+      element.setAttribute("aria-label", translate(key, lang));
+    });
+
+    document.querySelectorAll("[data-i18n-title]").forEach(function (element) {
+      const key = element.getAttribute("data-i18n-title");
+
+      if (!key) return;
+
+      element.setAttribute("title", translate(key, lang));
     });
   }
 
@@ -96,10 +127,7 @@
     document.querySelectorAll("[data-lang-option]").forEach(function (button) {
       const buttonLang = button.getAttribute("data-lang-option");
 
-      button.classList.toggle(
-        "active",
-        buttonLang === lang
-      );
+      button.classList.toggle("active", buttonLang === lang);
 
       button.setAttribute(
         "aria-pressed",
