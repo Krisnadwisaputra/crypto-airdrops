@@ -1481,3 +1481,195 @@ footer {
     margin-left: 0;
   }
 }
+
+/* =========================================================
+   KDS AIRDROP HUB — EDITORIAL READING EXPERIENCE
+   Phase 3: Display type, reading progress, table of contents
+   ========================================================= */
+
+/* ---------- DISPLAY TYPE FOR LONG-FORM HEADLINES ---------- */
+/* Fraunces carries the "premium editorial" register; Inter stays
+   the workhorse for body copy and UI chrome. */
+
+.article h1,
+.article-body h2 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+
+.article-body h2::before {
+  /* the gradient rule already gives h2 a marker; drop the extra
+     weight so the serif face carries the emphasis instead */
+  width: 22px;
+}
+
+/* Kicker: sentence case, no pill, no all-caps — the label reads
+   as a category name, not a UI badge. */
+.article-tag {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--accent-bright);
+  margin-bottom: 4px;
+}
+
+/* ---------- READING PROGRESS BAR ---------- */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 999;
+  pointer-events: none;
+  background: transparent;
+}
+
+.reading-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #00c9ff);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reading-progress-bar {
+    transition: width 0.12s linear;
+  }
+}
+
+/* ---------- TABLE OF CONTENTS (DESKTOP) ---------- */
+/* Injected by js/article-enhance.js, which wraps .article-inner
+   in .article-layout and adds a sibling .toc aside — no markup
+   change needed in the article HTML files themselves. */
+
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+}
+
+@media (min-width: 1180px) {
+  .article-layout {
+    grid-template-columns: minmax(0, var(--prose)) 232px;
+    align-items: start;
+  }
+}
+
+.toc {
+  display: none;
+}
+
+@media (min-width: 1180px) {
+  .toc {
+    display: block;
+    position: sticky;
+    top: 104px;
+    padding-left: 22px;
+    border-left: 1px solid var(--border);
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+}
+
+.toc-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.toc a {
+  display: block;
+  padding: 6px 0 6px 13px;
+  margin-left: -14px;
+  border-left: 2px solid transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.toc a:hover {
+  color: var(--text);
+}
+
+.toc a.active {
+  color: var(--accent-bright);
+  border-left-color: var(--accent);
+}
+
+/* ---------- TABLE OF CONTENTS (MOBILE) ---------- */
+
+.toc-mobile {
+  display: block;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1180px) {
+  .toc-mobile {
+    display: none;
+  }
+}
+
+.toc-mobile summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  list-style: none;
+}
+
+.toc-mobile summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc-mobile summary::after {
+  content: '↓';
+  float: right;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
+
+.toc-mobile[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.toc-mobile[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.toc-mobile nav {
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 6px 18px 14px;
+  background: var(--surface);
+}
+
+.toc-mobile nav a {
+  display: block;
+  padding: 7px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+.toc-mobile nav a:hover {
+  color: var(--accent);
+}
