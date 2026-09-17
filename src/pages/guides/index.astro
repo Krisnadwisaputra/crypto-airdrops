@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const guides = await getCollection("guides");
+---
+
+<MainLayout
+  title="Crypto Airdrop Guides | KDS Airdrop Hub"
+  description="Practical crypto airdrop, faucet, testnet, and security guides from KDS Airdrop Hub."
+  canonical="https://airdrop-hub.cryptoatlas.workers.dev/guides/"
+>
+  <main>
+    <article class="article">
+      <div class="container">
+        <div class="article-inner">
+
+          <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span>Guides</span>
+          </div>
+
+          <div class="article-tag">Guides</div>
+
+          <h1>Crypto Airdrop Guides</h1>
+
+          <div class="article-body">
+            <p>
+              Practical guides covering crypto airdrops, faucets, testnets,
+              earning methods, and wallet security.
+            </p>
+
+            <ul>
+              {guides.map((guide) => (
+                <li>
+                  <a href={`/guides/${guide.data.slug}/`}>
+                    {guide.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </article>
+  </main>
+</MainLayout>

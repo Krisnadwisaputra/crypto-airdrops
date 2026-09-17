@@ -1,0 +1,20 @@
+---
+const {
+  tag,
+  title,
+  author = "Krisna Dwi Saputra",
+  reviewed
+} = Astro.props;
+---
+
+<div class="article-tag">{tag}</div>
+
+<h1 id="article-title">{title}</h1>
+
+<div class="article-meta">
+  <span class="author">{author}</span>
+  <span class="sep">·</span>
+  <span>Reviewed for</span>
+  <span class="sep">·</span>
+  <span>{reviewed}</span>
+</div>

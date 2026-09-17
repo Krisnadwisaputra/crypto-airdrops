@@ -1,0 +1,63 @@
+/* =========================================================
+   KDS AIRDROP HUB — CLEANED UP BASE + COMPONENT STYLES
+   Consolidated design tokens and layouts to reduce duplication.
+   ========================================================= */
+
+:root {
+  --bg: #07090d;
+  --surface: #0e1218;
+  --surface-2: #151a22;
+  --border: rgba(255, 255, 255, 0.075);
+  --border-hover: rgba(0, 229, 160, 0.32);
+  --text: #f2f5f7;
+  --text-muted: #8d96a3;
+  --accent: #00e5a0;
+  --accent-bright: #18f5b2;
+  --accent-dim: rgba(0, 229, 160, 0.09);
+  --accent-glow: rgba(0, 229, 160, 0.20);
+  --warn: #f5a623;
+  --danger: #ff4d6a;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.38);
+  --prose: 760px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(0, 229, 160, 0.045), transparent 35%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(0, 229, 160, 0.22);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mt-8 { margin-top: 8px; }
+.nowrap { white-space: nowrap; }
+
+/* ---------- NAV ---------- */

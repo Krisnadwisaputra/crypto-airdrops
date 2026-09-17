@@ -1,0 +1,88 @@
+---
+import { getCollection } from "astro:content";
+
+import MainLayout from "../../layouts/MainLayout.astro";
+import ArticleNav from "../../components/article/ArticleNav.astro";
+import Breadcrumb from "../../components/article/Breadcrumb.astro";
+import ArticleHeader from "../../components/article/ArticleHeader.astro";
+import ArticleFooter from "../../components/article/ArticleFooter.astro";
+import RelatedGuides from "../../components/article/RelatedGuides.astro";
+
+export async function getStaticPaths() {
+  const guides = await getCollection("guides");
+
+  return guides.map((guide) => ({
+    params: {
+      slug: guide.data.slug
+    },
+    props: {
+      guide
+    }
+  }));
+}
+
+const { guide } = Astro.props;
+const { data } = guide;
+const { Content } = await guide.render();
+
+const canonical =
+  `https://airdrop-hub.cryptoatlas.workers.dev/guides/${data.slug}/`;
+---
+
+<MainLayout
+  title={data.title}
+  description={data.description}
+  canonical={canonical}
+  author={data.author}
+  datePublished={data.datePublished}
+  dateModified={data.dateModified}
+  ogDescription={data.ogDescription}
+  keywords={data.keywords}
+>
+  <ArticleNav />
+
+  <main>
+    <article class="article" aria-labelledby="article-title">
+      <div class="container">
+        <div class="article-inner">
+
+          <Breadcrumb title={data.tag} />
+
+          <ArticleHeader
+            tag={data.tag}
+            title={data.title}
+            author={data.author}
+            reviewed={data.reviewed}
+          />
+
+          <div class="article-body">
+            <Content />
+          </div>
+
+          <RelatedGuides />
+
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <ArticleFooter />
+
+  {data.faq.length > 0 && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: data.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer
+          }
+        }))
+      })}
+    />
+  )}
+</MainLayout>

@@ -1,9 +1,15 @@
 {
-  "name": "airdrop-hub",
+  "name": "kds-airdrop-hub",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "node generate-sitemap.js",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "deploy": "npm run build && npx wrangler deploy"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
   },
   "devDependencies": {
     "wrangler": "^4.131.2"

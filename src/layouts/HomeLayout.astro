@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+import "../styles/home.css";
+
+const {
+  title = "Crypto Airdrops — Earn Free Tokens Safely",
+  description = "Step-by-step guides, testnet strategies, faucet breakdowns, and security rules to help you claim legitimate crypto airdrops safely.",
+  canonical = "https://airdrop-hub.cryptoatlas.workers.dev/"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="google-site-verification"
+      content="vmW1Y_OynyMyeicJaQeRTMwT2SsJSg72iNVapVHFChI"
+    />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Krisna Dwi Saputra" />
+
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta name="theme-color" content="#0a0b0f" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KDS Airdrop Hub" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://airdrop-hub.cryptoatlas.workers.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KDS Airdrop Hub" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://airdrop-hub.cryptoatlas.workers.dev/og-image.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SGYT8MEV0Q"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-SGYT8MEV0Q");
+    </script>
+
+    <!-- Website structured data -->
+    <script type="application/ld+json" is:inline>
+      {{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "KDS Airdrop Hub",
+        "url": canonical,
+        "description": description
+      }}
+    </script>
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
