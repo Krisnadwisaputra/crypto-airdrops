@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 import MainLayout from "../../layouts/MainLayout.astro";
 import ArticleNav from "../../components/article/ArticleNav.astro";
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 const { guide } = Astro.props;
 const { data } = guide;
-const { Content } = await guide.render();
+const { Content } = await render(guide);
 
 const canonical =
   `https://airdrop-hub.cryptoatlas.workers.dev/guides/${data.slug}/`;

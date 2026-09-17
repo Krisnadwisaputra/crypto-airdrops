@@ -1,0 +1,22 @@
+# Legacy URL redirects → Astro routes
+
+/guide-claim.html        /guides/claim/                 301
+/guide-daily.html        /guides/daily/                 301
+/guide-faucets.html      /guides/faucets/               301
+/guide-scam.html         /guides/scam/                  301
+/guide-tap.html          /guides/tap/                    301
+/guide-testnet.html      /guides/testnet/               301
+/bitcoin-faucets-2026.html /guides/bitcoin-faucets-2026/ 301
+
+/guide-claim             /guides/claim/                 301
+/guide-daily             /guides/daily/                 301
+/guide-faucets           /guides/faucets/               301
+/guide-scam              /guides/scam/                  301
+/guide-tap               /guides/tap/                   301
+/guide-testnet           /guides/testnet/               301
+/bitcoin-faucets-2026    /guides/bitcoin-faucets-2026/  301
+
+/about.html              /about/                        301
+/contact.html            /contact/                      301
+/privacy.html            /privacy/                      301
+/disclaimer.html         /disclaimer/                   301
